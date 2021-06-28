@@ -111,7 +111,7 @@ begin
 
       when liga_ar =>  eprox <= espera;
                             
-      when others => Eprox <= reset;
+      when others =>  Eprox <= espera;
       
     end case;
   end process;
