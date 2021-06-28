@@ -64,8 +64,7 @@ _OBS: Utilizaremos as entradas em pinos da interface GPIO disponíveis. Usaremos
 
 ## 3. MATERIAL DISPONÍVEL
 
- 74160, 74161, 74162, 74163, 74191, outros circuitos integrados e portas básicas usadas nas
-experiências anteriores.
+- 74160, 74161, 74162, 74163, 74191, outros circuitos integrados e portas lógicas básicas.
 
 ## 5. EQUIPAMENTOS NECESSÁRIOS (*)
 
@@ -78,8 +77,8 @@ experiências anteriores.
 - Faça o download do arquivo **sala_de_reunioes.QAR** dentro da pasta **assets**
 - Abra o arquivo com o Quartus Prime
 - Em seguida todos os arquivos .VHD bem como a pinagem da placa são carregados na pasta raíz do projeto
-- Caso queira visualizar os arquivos base do projeto como a [Unidade de Controle](https://github.com/), o [Fluxo de Dados](https://github.com/), a [Sala de Reuniões Completa](https://github.com/), ou os [Displays de 7 segmentos](https://github.com/) para o Kit DE0-CV, basta clicar nos itens anteriores ou navegar até a pasta vhdl
-- O [Relatório](https://github.com/) com o desenvolvimento pode ser encontrado dentro da pasta assets no arquivo relatório_sala_de_reunioes_.pdf
+- Caso queira visualizar os arquivos base do projeto como a [Unidade de Controle](https://github.com/kevinkirsten/ControleSalaDeReunioesVHDL/blob/main/vhdl/uc.vhd), o [Fluxo de Dados](https://github.com/kevinkirsten/ControleSalaDeReunioesVHDL/blob/main/vhdl/fd.vhd), a [Sala de Reuniões Completa](https://github.com/kevinkirsten/ControleSalaDeReunioesVHDL/blob/main/vhdl/sala_de_reunioes.vhd), ou os [Displays de 7 segmentos](https://github.com/kevinkirsten/ControleSalaDeReunioesVHDL/blob/main/vhdl/dual_seven_segment_deo_cv.vhd) para o Kit DE0-CV, basta clicar nos itens anteriores ou navegar até a pasta vhdl
+- O [Relatório](https://github.com/kevinkirsten/ControleSalaDeReunioesVHDL/blob/main/assets/relatório_sala_de_reunioes.pdf) com o desenvolvimento pode ser encontrado dentro da pasta assets no arquivo relatório_sala_de_reunioes.pdf
 
 ## AGRADECIMENTOS E CRÉDITOS
 
