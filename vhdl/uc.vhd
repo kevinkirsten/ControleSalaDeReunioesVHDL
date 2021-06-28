@@ -33,7 +33,7 @@ architecture comportamental of uc is
 
   type Tipo_estado is (aguarda_reset, reset, espera, liga_luz_desliga_led_sala_vazia, incrementa, pos_incrementa,
                       liga_led_sala_cheia, liga_ar, desliga_led_sala_cheia, troca_func_contador, decrementa,
-                      pos_decrementa, desliga_ar, desliga_luz_liga_led_sala_vazia);
+                      pos_decrementa, desliga_ar, desliga_luz_liga_led_sala_vazia, liga_led_sala_vazia);
   signal Eatual, Eprox: Tipo_estado;
 
  
@@ -57,7 +57,9 @@ begin
                               Eprox <= aguarda_reset;
                             end if;
 
-      when reset => Eprox <= espera;
+      when reset => Eprox <= liga_led_sala_vazia;
+
+      when liga_led_sala_vazia => Eprox <= espera;
 
       when espera =>  if saiu_uc = '1' and fd_sala_vazia = '1' then
                         Eprox <= espera;
@@ -121,7 +123,7 @@ begin
   -- CONTROLE CONTADOR/SUBTRATOR
   with Eatual select
     reset_counter_sub <= '1' when reset,
-                        '0' when others;
+                         '0' when others;
   with Eatual select
     decrement_participant <= '1' when troca_func_contador,
                              '1' when decrementa,
@@ -147,6 +149,7 @@ begin
   -- CONTROLE SALA VAZIA
   with Eatual select
     turn_on_empty <= '1' when desliga_luz_liga_led_sala_vazia,
+                     '1' when liga_led_sala_vazia,
                      '0' when others;
   with Eatual select
     turn_off_empty <= '1' when liga_luz_desliga_led_sala_vazia,
@@ -162,17 +165,18 @@ begin
   with Eatual select
     estado <= "0000" when aguarda_reset,
               "0001" when reset,
-              "0010" when espera,
-              "0011" when liga_luz_desliga_led_sala_vazia,
-              "0100" when incrementa,
-              "0101" when pos_incrementa,
-              "0110" when liga_led_sala_cheia,
-              "0111" when liga_ar,
-              "1000" when desliga_led_sala_cheia,
-              "1001" when troca_func_contador,
-              "1010" when decrementa,
-              "1011" when pos_decrementa,
-              "1100" when desliga_ar,
-              "1101" when desliga_luz_liga_led_sala_vazia;
+              "0010" when liga_led_sala_vazia,
+              "0011" when espera,
+              "0100" when liga_luz_desliga_led_sala_vazia,
+              "0101" when incrementa,
+              "0110" when pos_incrementa,
+              "0111" when liga_led_sala_cheia,
+              "1000" when liga_ar,
+              "1001" when desliga_led_sala_cheia,
+              "1010" when troca_func_contador,
+              "1011" when decrementa,
+              "1100" when pos_decrementa,
+              "1101" when desliga_ar,
+              "1110" when desliga_luz_liga_led_sala_vazia;
 
 end comportamental;                           

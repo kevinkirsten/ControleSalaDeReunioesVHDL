@@ -15,9 +15,9 @@ entity sala_de_reunioes is
     Display_estados_1:            out std_logic_vector(6 downto 0);
     Display_participantes_0:      out std_logic_vector(6 downto 0);
     Display_participantes_1:      out std_logic_vector(6 downto 0);
-    dd_estados: out std_logic_vector(3 downto 0)
-    -- dd_on_vazio: out std_logic;
-    -- dd_off_vazio: out std_logic;
+    Display_apagado_0:            out std_logic_vector(6 downto 0);
+    Display_apagado_1:            out std_logic_vector(6 downto 0)
+    -- dd_estados:                   out std_logic_vector(3 downto 0) -- para depuração
   );
 end sala_de_reunioes;
 
@@ -196,9 +196,11 @@ begin
   si_participantes(5) <= '0';
   si_participantes(4) <= '0';
 
-  dd_estados <= si_estados;
-  -- dd_on_vazio <= si_turn_on_empty;
-  -- dd_off_vazio <= si_turn_off_empty;
+  -- dd_estados <= si_estados; -- para depuração
+
+  Display_apagado_0 <= "1111111";
+  Display_apagado_1 <= "1111111";
+
   display_estados: dual_seven_segment_DEO_CV port map (si_estados7, Display_estados_1, Display_estados_0);
   display_participantes: dual_seven_segment_DEO_CV port map (si_participantes, Display_participantes_1, Display_participantes_0);
   
